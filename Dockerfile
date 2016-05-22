@@ -45,4 +45,9 @@ chmod -Rf 754 /var/lib/apache2
 # Expose Ports
 EXPOSE 80
 
-CMD ["/usr/bin/supervisord", "-n -c /etc/supervisord.conf"]
+RUN curl -O /start.sh -sL https://gist.githubusercontent.com/jkirkby91/df5436ed5625f3c8e3648f402ac79a80/raw/4e130a53fb0f41632d966fb5accda06951054b14/start.sh
+
+RUN chmod 777 /start.sh
+
+# Set entrypoint
+CMD ["/bin/bash/, "/start.sh"]
