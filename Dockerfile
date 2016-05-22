@@ -45,4 +45,4 @@ chmod -Rf 754 /var/lib/apache2
 # Expose Ports
 EXPOSE 80
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-n -c /etc/supervisord.conf"]
