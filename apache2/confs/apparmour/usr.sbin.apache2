@@ -1,0 +1,44 @@
+# Last Modified: Sat Jun 12 13:46:42 2010
+#include &lt;tunables/global&gt;
+/usr/sbin/apache2 {
+#include &lt;abstractions/base&gt;
+#include &lt;abstractions/nameservice&gt;
+#include &lt;abstractions/nis&gt;
+
+capability kill,
+capability net_bind_service,
+capability setgid,
+capability setuid,
+
+/etc/apache2/*/ r,
+/etc/apache2/apache2.conf r,
+/etc/apache2/conf.d/charset r,
+/etc/apache2/httpd.conf r,
+/etc/apache2/mods-available/** r,
+/etc/apache2/mods-enabled/** r,
+/etc/apache2/ports.conf r,
+/etc/apache2/sites-available/** r,
+/etc/apache2/sites-enabled/** r,
+/etc/mime.types r,
+/etc/php5/apache2/php.ini r,
+/etc/php5/conf.d/* r,
+/usr/lib/** mr,
+/usr/sbin/apache2 mr,
+/usr/share/apache2/** r,
+/usr/share/file/* r,
+/var/*/ r,
+/var/log/apache2/access.log w,
+/var/log/apache2/error.log w,
+/var/run/apache2.pid rw,
+/var/www/** r,
+}
+
+/usr/sbin/apache2//DEFAULT_URI {
+/usr/sbin/suexec2 rix,
+/usr/share/apache2/** r,
+/var/log/apache2/** rwl,
+/var/www/** r,
+}
+
+/usr/sbin/apache2//HANDLING_UNTRUSTED_INPUT {
+}
