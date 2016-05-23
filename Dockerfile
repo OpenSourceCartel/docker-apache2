@@ -45,9 +45,9 @@ chmod -Rf 754 /var/lib/apache2
 # Expose Ports
 EXPOSE 80
 
-RUN curl -s https://gist.githubusercontent.com/jkirkby91/df5436ed5625f3c8e3648f402ac79a80/raw/4e130a53fb0f41632d966fb5accda06951054b14/start.sh -O /start.sh
+RUN curl -s https://gist.githubusercontent.com/jkirkby91/df5436ed5625f3c8e3648f402ac79a80/raw/4e130a53fb0f41632d966fb5accda06951054b14/start.sh -O /vagrant/start.sh
 
-RUN chmod 777 /start.sh
+RUN chmod 777 /vagrant/start.sh
 
 # Set entrypoint
-CMD ["/bin/bash/, "/start.sh"]
+CMD ["/bin/bash/, "/vagrant/start.sh"]
